@@ -7,7 +7,7 @@ public class Generate {
     public static List<Integer> generate(int nbre){
         List<Integer> facteurs = new ArrayList<Integer>();
         if (nbre > 1){
-            facteurs.add(2);
+            facteurs.add(nbre);
         }
         return facteurs;
     }

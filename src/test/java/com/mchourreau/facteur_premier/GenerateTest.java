@@ -35,4 +35,16 @@ class GenerateTest {
 
         assertThat(actualFacteurs).isEqualTo(expectedFacteurs);
     }
+
+    @Test
+    void generate_3_devrait_retourner_liste_contenant_3(){
+        //Given
+        List<Integer> expectedFacteurs = new ArrayList<Integer>();
+        expectedFacteurs.add(3);
+
+        //When
+        List<Integer> actualFacteurs = Generate.generate(3);
+
+        assertThat(actualFacteurs).isEqualTo(expectedFacteurs);
+    }
 }
