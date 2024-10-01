@@ -11,13 +11,24 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 
 class GenerateTest {
+    private List<Integer> actualFacteurs;
+
+    private List<Integer> expectedFacteurs;
+
+    private List<Integer> listeFab(int ... composants){
+        List<Integer> listeARetourner = new ArrayList<Integer>();
+
+        for (int i : composants){
+            listeARetourner.add(i);
+        }
+        return listeARetourner;
+    }
 
 
     @Test
     void generate_1_devrait_retourner_1_liste_vide(){
         //Given
-        List<Integer> expectedFacteurs = new ArrayList<Integer>();
-
+        expectedFacteurs = listeFab();
         //When
         List<Integer> actualFacteurs = Generate.generate(1);
 
@@ -27,7 +38,7 @@ class GenerateTest {
     @Test
     void generate_2_devrait_retourner_liste_contenant_2(){
         //Given
-        List<Integer> expectedFacteurs = new ArrayList<Integer>();
+        expectedFacteurs = listeFab();
         expectedFacteurs.add(2);
 
         //When
@@ -39,7 +50,7 @@ class GenerateTest {
     @Test
     void generate_3_devrait_retourner_liste_contenant_3(){
         //Given
-        List<Integer> expectedFacteurs = new ArrayList<Integer>();
+        expectedFacteurs = listeFab();
         expectedFacteurs.add(3);
 
         //When
@@ -47,4 +58,55 @@ class GenerateTest {
 
         assertThat(actualFacteurs).isEqualTo(expectedFacteurs);
     }
+
+
+    @Test
+    void generate_4_devrait_retourner_liste_contenant_2_2(){
+        //Given
+        expectedFacteurs = listeFab();
+        expectedFacteurs.add(2);
+        expectedFacteurs.add(2);
+
+        //When
+        List<Integer> actualFacteurs = Generate.generate(4);
+
+        assertThat(actualFacteurs).isEqualTo(expectedFacteurs);
+    }
+
+    @Test
+    void generate_4_devrait_retourner_liste_contenant_2_3(){
+        //Given
+        expectedFacteurs = listeFab(2,3);
+
+
+        //When
+        List<Integer> actualFacteurs = Generate.generate(6);
+
+        assertThat(actualFacteurs).isEqualTo(expectedFacteurs);
+    }
+
+    @Test
+    void generate_8_devrait_retourner_liste_contenant_2_2_2(){
+        //Given
+        expectedFacteurs = listeFab(2,2,2);
+
+
+        //When
+        List<Integer> actualFacteurs = Generate.generate(8);
+
+        assertThat(actualFacteurs).isEqualTo(expectedFacteurs);
+    }
+
+    @Test
+    void generate_9_devrait_retourner_liste_contenant_3_3(){
+        //Given
+        expectedFacteurs = listeFab(3,3);
+
+
+        //When
+        List<Integer> actualFacteurs = Generate.generate(9);
+
+        assertThat(actualFacteurs).isEqualTo(expectedFacteurs);
+    }
+
 }
