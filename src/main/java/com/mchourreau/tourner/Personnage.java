@@ -20,19 +20,17 @@ public class Personnage {
     }
 
     Orientation tourner(int nbre){
+        Orientation OrientationFinale = Orientation.NORD;
 
-        if (nbre % 4 == 0)
-        {
-            return Orientation.NORD;
-        }
         if (nbre % 4 == 1) {
-            return Orientation.EST;
+            OrientationFinale = Orientation.EST;
         }
-        if (nbre % 4 == 2) {
-            return Orientation.SUD;
+        else if (nbre % 4 == 2) {
+            OrientationFinale = Orientation.SUD;
         }
-        if (nbre % 4 == 3) {
-            return Orientation.OUEST;
+        else if (nbre % 4 == 3){
+            OrientationFinale = Orientation.OUEST;
         }
+        return OrientationFinale;
     }
 }
